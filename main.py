@@ -1,4 +1,4 @@
-import M3 as rse
+import M3 as enigma
 
 rotor,rings,Rot,plugb,reflector = [],[],[],'',''
 
@@ -34,7 +34,7 @@ def select_settings(isFullSetting=True):
         Rot = ['A','A','A'] if x == [''] else x
 
     #Inputing Values
-    rs.setter(rotor[0],rotor[1],rotor[2],rings[0],rings[1],rings[2],plugb,reflector,Rot[0],Rot[1],Rot[2])
+    m3.setter(rotor[0],rotor[1],rotor[2],rings[0],rings[1],rings[2],plugb,reflector,Rot[0],Rot[1],Rot[2])
 
 #start
 def start():
@@ -42,7 +42,7 @@ def start():
     encryptedMsg = ''
     for i in plainMsg:
         if i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            encryptedMsg += rs.startMachine(i)
+            encryptedMsg += m3.startMachine(i)
     print("\n   Encrypted Msg : ",end = '')
     k = 0
     for i in encryptedMsg:
@@ -54,7 +54,7 @@ def start():
 
 #displayCurrentSettings
 def displayCurrentSetting():
-    R1,R2,R3,r1,r2,r3,plugBoard,reflector,i1,i2,i3 = rs.getter()
+    R1,R2,R3,r1,r2,r3,plugBoard,reflector,i1,i2,i3 = m3.getter()
     print("\nRotor Settings : ",R1,R2,R3)
     print("Ring Settings : ",r1,r2,r3)
     print("Initial Settings : ",i1,i2,i3)
@@ -63,17 +63,18 @@ def displayCurrentSetting():
 
 #displayRotorSettings
 def displayRotorSettings():
-    R1,R2,R3 = rs.getRotorPosition()
+    R1,R2,R3 = m3.getRotorPosition()
     print('\t',R1,R2,R3)
     
 #--------------------------------------------------------------------------------------------#
 
 ch = 0
 
-#Object
-rs = rse.RSE()
-rs.setter()
 try :
+    #Object
+    m3 = enigma.M3()
+    m3.setter()
+    
     while ch != 5:
         print("\n\tMENU\n1.Enigma Settings\n2.Initial Setting\n3.Start\n4.Display Settings\n5.Exit")
         ch = input("Enter your choice : ")
