@@ -23,7 +23,7 @@ def setRotVal(value):
         return ['''ABCDEFGHIJKLMNOPQRSTUVWXYZ''','''VZBRGITYUPSDNHLXAWMJQOFECK''','''ABCDEFGHIJKLMNOPQRSTUVWXYZ''']
 #--------------------------------------------------------------------------------------
 
-class RSE:
+class M3:
     Plugboard = dict()
     R1,R2,R3,r1,r2,r3,plugBoard,reflector,iI,iII,iIII = "","","","","","","","","","",""
     R,r,i,S = [],[],[],[]
@@ -44,6 +44,7 @@ class RSE:
         for i in k:
             if k.count(i) > 1:
                 exit()
+
         #set_plugboard
         for i in self.plugBoard:
             if len(i) == 2:
@@ -143,7 +144,7 @@ class RSE:
     
 #SampleCode
 if __name__ == '__main__':
-    r = RSE()
+    r = M3()
     r.setter('III','II','V','J','S','C','QH WP ES AY DX RC TF VB ZG UJ NM IK OL','B','C','S','E')
     x = input("Enter a message : ")
     s = ''
