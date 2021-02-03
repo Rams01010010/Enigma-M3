@@ -1,7 +1,7 @@
 import M3 as enigma
 
 rotor,rings,Rot,plugb,reflector = [],[],[],'',''
-
+flag = 0
 #Enigma Settings
 def select_settings(isFullSetting=True):
 
@@ -43,7 +43,7 @@ def start():
     for i in plainMsg:
         if i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
             encryptedMsg += m3.startMachine(i)
-    print("\n   Encrypted Msg : ",end = '')
+    print("\nEncrypted Msg : ",end = '')
     k = 0
     for i in encryptedMsg:
         if k == 5:
@@ -51,7 +51,7 @@ def start():
             k = 0
         print(i,end = '')
         k+=1
-
+    print()
 #displayCurrentSettings
 def displayCurrentSetting():
     R1,R2,R3,r1,r2,r3,plugBoard,reflector,i1,i2,i3 = m3.getter()
@@ -68,14 +68,12 @@ def displayRotorSettings():
     
 #--------------------------------------------------------------------------------------------#
 
-ch = 0
+ch,f = 0,0
 
-try :
-    #Object
-    m3 = enigma.M3()
-    m3.setter()
-    
-    while ch != 5:
+m3 = enigma.M3()
+m3.setter()
+while ch != 5:
+    try :
         print("\n\tMENU\n1.Enigma Settings\n2.Initial Setting\n3.Start\n4.Display Settings\n5.Exit")
         ch = input("Enter your choice : ")
         if ch == '1':
@@ -83,15 +81,20 @@ try :
         elif ch == '2':
             select_settings(False)
         elif ch == '3':
-            print()
-            displayRotorSettings()
-            print()
-            start()
+            if f == 1:
+                print()
+                displayRotorSettings()
+                print()
+                start()
+                f += 1
+            elif f ==  0:
+                select_settings()
+                f = 1
         elif ch == '4':
             displayCurrentSetting()
         elif ch == '5':
             break
         else:
             print('\n\t"Invalid choice"') 
-except:
-    print("Input Correctly !")
+    except:
+        print("Input Correctly !")
