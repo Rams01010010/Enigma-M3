@@ -15,7 +15,7 @@ This was the cryptographic device used in WWII and this program works on that pr
    - You can use pair of letters seperated by a space to indicate plugboard(if AB then 'A' will be mapped to 'B' & viceversa).
     
    #### Initial Position:
-    This is the position of the rotor after setting the machine.
+   - This is the position of the rotor after setting the machine.
 
 ## Finally !
  Enter the settings you need and you're done and you can 'start' and encrypt your messages :)
