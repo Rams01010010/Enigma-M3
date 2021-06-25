@@ -87,7 +87,7 @@ while ch != 5:
                 displayRotorSettings()
                 print()
                 start()
-            elif f ==  0:
+            else:
                 select_settings()
                 f = 1
         elif ch == '4':
