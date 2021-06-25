@@ -78,6 +78,7 @@ while ch != 5:
         ch = input("Enter your choice : ")
         if ch == '1':
             select_settings()
+            f = 1
         elif ch == '2':
             select_settings(False)
         elif ch == '3':
@@ -86,7 +87,6 @@ while ch != 5:
                 displayRotorSettings()
                 print()
                 start()
-                f += 1
             elif f ==  0:
                 select_settings()
                 f = 1
